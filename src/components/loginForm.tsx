@@ -9,7 +9,7 @@ import Input from './Input';
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { useDispatch } from 'react-redux'
 import {login as authLogin } from '@/store/authSlice'
-import { redirect } from 'next/navigation';
+
 
 
 
@@ -30,7 +30,7 @@ function LoginFrom(): JSX.Element {
             const session =await authService.login(data);
             if (session) {
                 const userData = await authService.getCurrentUser()
-                console.log("User Data before dispatch:", userData);
+            
                 if(userData) dispatch(authLogin(userData));
                 setMessage("Account login successfully!");
                 

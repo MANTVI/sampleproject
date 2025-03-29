@@ -1,8 +1,9 @@
 'use client';
 
 import React, { JSX, useState } from 'react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import {  XMarkIcon } from '@heroicons/react/24/outline'
 import { useForm } from 'react-hook-form';
+import { useRouter } from "next/navigation";
 import authService from '@/firebase/authService';
 import Link from 'next/link';
 import Input from './Input';
@@ -18,7 +19,7 @@ function SignupFrom() {
     }
     const dispatch = useDispatch()
     const [error, setError] = useState("")
-
+    const router = useRouter();
     const [message, setMessage] = useState<string>("");
     const { register, handleSubmit, formState: { errors }, watch } = useForm<LoginFormInputs>()
 
@@ -28,11 +29,15 @@ function SignupFrom() {
             const userData=await authService.createAccount(data);
             if (userData) {
                 const userData = await authService.getCurrentUser()
-                if(userData) dispatch(login(userData));
-                setMessage("Account created successfully!");
+                if(userData){
+                    dispatch(login(userData));
+                    setMessage("Account created successfully!");
+                    router.push('/dashboard');
+                }
+                
             }
             
-            console.log(data); 
+          
         } catch (error) {
             if (error instanceof Error) {
                 setMessage("signup failed! " + error.message);
