@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📂 Project Title: Authentication System with  NextJs and Firebase
 
-## Getting Started
+## 📝 Project Overview
+This project is a user authentication system built using **NextJs**, **Firebase**, **React Hook Form**, **Redux Toolkit**, and **Tailwind CSS**. It includes **Login** and **Signup** pages with frontend validation, user data management with **Redux Toolkit**, and persistent user sessions using **Local Storage**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 💡 Features
+- **Login and Signup** pages with React Hook Form and frontend validation.
+- **Redux Toolkit** for managing authentication state.
+- **Firebase Authentication** for secure user sign-up, login, and logout.
+- Persistent user sessions using **Local Storage**, ensuring users stay logged in even after refreshing.
+- **Tailwind CSS** for responsive and modern UI styling.
+- Logout functionality on the home page.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Technologies Used
+- **React**: Frontend library.
+- **React Hook Form**: Form handling and validation.
+- **Redux Toolkit**: State management for user authentication.
+- **Firebase**: Authentication and data storage.
+- **Tailwind CSS**: Styling framework for responsive design.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🔧 Installation & Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up Firebase:
+   - Create a Firebase project and add a web app.
+   - Copy Firebase configuration and add it to your **.env** file.
+   ```env
+   REACT_APP_API_KEY=your_api_key
+   REACT_APP_AUTH_DOMAIN=your_project.firebaseapp.com
+   REACT_APP_PROJECT_ID=your_project_id
+   REACT_APP_STORAGE_BUCKET=your_bucket.appspot.com
+   REACT_APP_MESSAGING_SENDER_ID=your_sender_id
+   REACT_APP_APP_ID=your_app_id
+   ```
+4. Start the development server:
+   ```bash
+   npm start
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Folder Structure
+```plaintext
+src/
+├── app/
+│   ├── auth/
+│   │   ├── login/
+│   │   ├── signup/
+│   ├── dashboard/
+│       ├── Dashboard.tsx
+├── components/
+│   ├── Button.tsx
+│   ├── Input.tsx
+│   ├── Dashboard.tsx
+│   ├── loginForm.tsx
+│   ├── signupForm.tsx
+│   ├── Provider.tsx
+├── firebase/
+│   ├── authService.tsx
+├── store/
+│   ├── store.js
+│   ├── authSlice.js
+├── congifFirebase.ts.tsx
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## 🔑 Authentication Flow
+- **Login** and **Signup** forms use React Hook Form for validation.
+- **Redux Toolkit** stores user data and manages authentication status.
+- On successful authentication, user data is saved to **Local Storage**.
+- The Logout button on the Dashboard page clears the Redux state and local storage.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
