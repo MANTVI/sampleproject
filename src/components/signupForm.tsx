@@ -60,7 +60,7 @@ function SignupFrom() {
                         />
                     </Link>
                 </button>
-                <h2 className="text-center text-2xl font-bold leading-tight">Sign up to create account</h2>
+                <h2 className="text-center text-xl md:text-2xl font-extrabold leading-tight text-black">Sign up to create account</h2>
                 <p className="mt-2 text-center text-base text-black">
                     Already have an account?&nbsp;
                     <Link
