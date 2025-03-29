@@ -6,7 +6,7 @@ import {createSlice, nanoid } from '@reduxjs/toolkit';
 
 const initialState = {
     status:false,
-    userData:any
+    userData:null
  
 }
 
