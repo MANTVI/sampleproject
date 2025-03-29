@@ -19,8 +19,8 @@ export default function Example() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [active, setActive] = useState(false);
     const dispatch = useDispatch();
-    const authStatus = useSelector((state) => state.auth.status)
-    const userData = useSelector((state) => state.auth.userData);
+    const authStatus = useSelector((state: any) => state.auth.status)
+    const userData = useSelector((state: any) => state.auth.userData);
 
     useEffect(() => {
         setActive(true);
