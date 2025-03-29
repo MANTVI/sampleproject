@@ -15,12 +15,19 @@ const navigation = [
     { name: 'Company', href: '#' },
 ]
 
+
 export default function Example() {
+    interface AuthState {
+        auth: {
+            status: boolean;
+            userData: any; 
+        };
+    }
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [active, setActive] = useState(false);
     const dispatch = useDispatch();
-    const authStatus = useSelector((state: any) => state.auth.status)
-    const userData = useSelector((state: any) => state.auth.userData);
+    const authStatus = useSelector((state: AuthState) => state.auth.status)
+    const userData = useSelector((state:AuthState) => state.auth.userData);
 
     useEffect(() => {
         setActive(true);
