@@ -17,18 +17,14 @@ const navigation = [
 
 
 export default function Example() {
-    interface AuthState {
-        auth: {
-            status: boolean;
-            userData: any; 
-        };
-    }
+   
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [active, setActive] = useState(false);
     const dispatch = useDispatch();
-    const authStatus = useSelector((state: AuthState) => state.auth.status)
-    const userData = useSelector((state:AuthState) => state.auth.userData);
-
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    const authStatus = useSelector((state:any) => state.auth.status)
+    const userData = useSelector((state:any) => state.auth.userData);
+    /* eslint-enable @typescript-eslint/no-explicit-any */
     useEffect(() => {
         setActive(true);
     }, []);
