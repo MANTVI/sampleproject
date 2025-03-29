@@ -19,15 +19,15 @@ const authSlice= createSlice({
         login:(state,action)=>{
             state.status=true;
             const { password, ...userData } = action.payload; // Exclude password
-            state.userData= userData; // change user data
-            // localStorage.setItem('user', JSON.stringify(state));
+            state.userData= userData;
+            
         },
        
 
         logout:(state)=>{
             state.status=false;
             state.userData=null;
-            // localStorage.removeItem('user');
+           
 
         }
     }
