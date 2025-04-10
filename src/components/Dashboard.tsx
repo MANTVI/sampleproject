@@ -7,6 +7,8 @@ import authService from '@/firebase/authService'
 import { logout } from '@/store/authSlice'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { handleLogout} from '@/app/auth/action'
+import { useRouter } from "next/navigation";
 
 const navigation = [
     { name: 'Product', href: '#' },
@@ -21,6 +23,7 @@ export default function Example() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [active, setActive] = useState(false);
     const dispatch = useDispatch();
+    const router = useRouter();
     /* eslint-disable @typescript-eslint/no-explicit-any */
     const authStatus = useSelector((state:any) => state.auth.status)
     const userData = useSelector((state:any) => state.auth.userData);
@@ -29,10 +32,13 @@ export default function Example() {
         setActive(true);
     }, []);
 
-    const logoutHandler = () => {
+    const logoutHandler = async() => {
         authService.logout().then(() => {
+            
             dispatch(logout());
         })
+        await handleLogout();
+        router.push('/auth/login')
     }
 
     return (

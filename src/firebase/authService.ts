@@ -7,6 +7,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 
 
 
+
 const app = initializeApp(firebaseConfig);
 
 
@@ -46,7 +47,7 @@ export class AuthService {
 
       if (userCredential) return await this.login({ email, password });
     } catch (error) {
-      // console.error("Error in createAccount:", error);
+      
       throw error;
     }
   }
